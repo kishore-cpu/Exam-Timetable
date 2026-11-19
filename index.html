@@ -5,26 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BCA Nov/Dec 2026 – Exam Dates &amp; Syllabus (Sem 1–5)</title>
 <style>
-:root{--bg:#f6f7f9;--card:#fff;--text:#1c2430;--mute:#5d6878;--line:#e1e5ea;--acc:#2456d6;--arr:#c0312b;--arrbg:#fdecea}
-@media (prefers-color-scheme:dark){:root{--bg:#12161c;--card:#1b212a;--text:#e8ecf2;--mute:#9aa6b6;--line:#2c3542;--acc:#7aa2ff;--arr:#ff8a82;--arrbg:#3a1f1e}}
+:root{--bg:#f6f7f9;--card:#fff;--text:#1c2430;--mute:#5d6878;--line:#e1e5ea;--acc:#2456d6}
+@media (prefers-color-scheme:dark){:root{--bg:#12161c;--card:#1b212a;--text:#e8ecf2;--mute:#9aa6b6;--line:#2c3542;--acc:#7aa2ff}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:14px;max-width:760px;margin-inline:auto}
 h1{font-size:1.25rem;margin:4px 0}
 .sub{color:var(--mute);font-size:.85rem;margin:0 0 12px}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;position:sticky;top:0;background:var(--bg);padding:6px 0;z-index:2}
+.bar{position:sticky;top:0;background:var(--bg);padding:6px 0;z-index:2;margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
 .chips button{border:1px solid var(--line);background:var(--card);color:var(--text);padding:6px 12px;border-radius:99px;font:inherit;font-size:.82rem;cursor:pointer}
 .chips button.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.all{margin-top:8px;width:100%;border:1px solid var(--acc);background:transparent;color:var(--acc);padding:8px;border-radius:10px;font:inherit;font-size:.88rem;font-weight:600;cursor:pointer}
 h2{font-size:1rem;margin:18px 0 8px;color:var(--acc)}
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:8px}
-.card.arr{border-color:var(--arr);background:var(--arrbg)}
 .row{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
 .name{font-weight:600}
 .meta{color:var(--mute);font-size:.8rem}
 .date{text-align:right;white-space:nowrap;font-weight:600;font-size:.9rem}
 .date small{display:block;color:var(--mute);font-weight:400}
-.tag{display:inline-block;font-size:.7rem;border:1px solid var(--line);border-radius:6px;padding:0 6px;margin-right:4px;color:var(--mute)}
-.tag.a{border-color:var(--arr);color:var(--arr)}
-details{margin-top:6px}
+.tag{display:inline-block;font-size:.7rem;border:1px solid var(--line);border-radius:6px;padding:0 6px;color:var(--mute)}
+.act{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+.act button,.act a{border:1px solid var(--line);background:transparent;color:var(--acc);padding:5px 10px;border-radius:8px;font:inherit;font-size:.8rem;text-decoration:none;cursor:pointer}
+details{margin-top:8px}
 summary{cursor:pointer;color:var(--acc);font-size:.82rem}
 ol{margin:6px 0 0;padding-left:20px;font-size:.85rem}
 .note{font-size:.82rem;color:var(--mute);margin:6px 0 0}
@@ -35,61 +37,89 @@ ol{margin:6px 0 0;padding-left:20px;font-size:.85rem}
 <body>
 <h1>BCA Exam Dates &amp; Syllabus</h1>
 <p class="sub">Bharathiar University · Nov/Dec 2026 · Semesters 1–5 · FN 10:00 AM–1:00 PM · AN 2:00–5:00 PM</p>
+<div class="bar">
 <div class="chips" id="chips"></div>
+<button class="all" onclick="addAll()">Add all shown to calendar (with alerts)</button>
+</div>
 <div id="out"></div>
 <ul class="foot">
-<li><b>Red cards</b> are your arrear papers (failed or absent in April/May 2026).</li>
+<li>“Add to calendar” downloads a calendar file that opens in your phone or computer calendar. Each exam gets two alerts: 1 day before and 1 hour before.</li>
 <li>Unit titles come from the university’s B.C.A. syllabus for 2023-24 onwards. Tamil, English and the Allied papers have no unit list here, because they are not in that document.</li>
-<li>Python Programming appears on two dates in the timetables: 07/12/2026 AN and 17/12/2026 FN. RDBMS (2025 batch) also appears twice. Confirm with your college.</li>
 <li>Check Q.P. codes on your hall ticket. Lab/practical papers have no date in these timetables.</li>
 </ul>
 <script>
-var U="Unit",C6="Contemporary Issues";
+var C6="Contemporary Issues";
 var D=[
-// sem,cat,name,date,session,arrear,units
-[1,"Language","Tamil I","24/11/2026 Tue","FN",0,0],
-[1,"English","English I","26/11/2026 Thu","FN",0,0],
-[1,"Core","Core 1: Computing Fundamentals &amp; C Programming","02/12/2026 Wed","FN",0,["Fundamentals of Computers &amp; Problem Solving in C","Overview of C","Decision Making, Looping &amp; Arrays","User-Defined Functions, Structures &amp; Unions","Pointers &amp; File Management",C6]],
-[1,"Core","Core 2: Digital Fundamentals &amp; Computer Architecture","05/12/2026 Sat","FN",0,["Number System &amp; Arithmetic Circuits","Combinational Logic &amp; Sequential Circuits","Input–Output Organization &amp; Data Transfer","Memory Organization","Case Studies (80286–80486, microcontrollers)",C6]],
-[1,"Allied","Allied 1: Mathematical Structures for Computer Science","09/12/2026 Wed","FN",0,0],
-[2,"Language","Tamil II","24/11/2026 Tue","AN",0,0],
-[2,"English","English II","26/11/2026 Thu","AN",0,0],
-[2,"Allied","Allied 2: Discrete Mathematics","05/12/2026 Sat","AN",0,0],
-[2,"Core","Core 3: C++ Programming","11/12/2026 Fri","FN",1,["Introduction to C++","Classes &amp; Objects","Operator Overloading &amp; Inheritance","Pointers, Binding, Polymorphism &amp; Virtual Functions","Files, Templates, Exception Handling &amp; Strings",C6]],
-[3,"Language","Tamil III","23/11/2026 Mon","FN",1,0],
-[3,"English","English III","25/11/2026 Wed","FN",0,0],
-[3,"Allied","Allied 3: Computer Based Optimization Techniques","01/12/2026 Tue","FN",0,0],
-[3,"Core","Core 4: Data Structures","04/12/2026 Fri","FN",1,["Introduction (algorithms, arrays, stacks &amp; queues)","Linked Lists","Trees &amp; Graphs","External Sorting, Symbol Tables &amp; Hashing","Internal Sorting &amp; Files",C6]],
-[3,"Core","Core 5: Java Programming","08/12/2026 Tue","FN",0,["Fundamentals of OOP &amp; Java Evolution","Branching &amp; Looping","Arrays, Interfaces, Packages &amp; Multithreading","Error Handling, Applets &amp; Graphics","Managing Input/Output Files in Java",C6]],
-[3,"Skill","Skill Based 1: Web Programming","10/12/2026 Thu","AN",0,["Introduction to Internet","HTML","HTML &amp; DHTML","XML Basics &amp; DTD","XML Schema &amp; XSL",C6]],
-[4,"Language","Tamil IV","23/11/2026 Mon","AN",0,0],
-[4,"English","English IV","25/11/2026 Wed","AN",1,0],
-[4,"Core","Core 6: System Software &amp; Operating Systems","01/12/2026 Tue","AN",1,["Introduction to System Software, Loaders &amp; Linkers","Machine &amp; Compiler","Operating System (processes, storage management)","Virtual Storage &amp; Processor Scheduling","Device &amp; Information Management",C6]],
-[4,"Core","Core 7: Linux &amp; Shell Programming","04/12/2026 Fri","AN",0,["Introduction to Linux","Managing Files &amp; Directories","vi Editor, Filters &amp; Pipes","Securing Files &amp; Shell Scripts","Conditional Execution &amp; Iteration in Shell Scripts",C6]],
-[4,"Allied","Allied 4: Business Accounting","08/12/2026 Tue","AN",0,0],
-[5,"Core","Core 8: RDBMS &amp; Oracle","30/11/2026 Mon","FN",0,["Database Concepts","Oracle9i","Working with Tables","PL/SQL","PL/SQL Composite Data Types",C6]],
-[5,"Core","Core 9: Visual Basic","03/12/2026 Thu","FN",0,["Introduction to VB","Menus in VB","ODBC &amp; Data Access Objects","Object Linking &amp; Embedding","Controls in VB",C6]],
-[5,"Elective","Elective I: Introduction to Compiler Design","17/12/2026 Thu","FN",0,["Introduction to Compilers","Syntax &amp; Parsing Techniques","Syntax-Directed Translation &amp; Symbol Table","Storage Allocation &amp; Error Recovery","Code Optimization &amp; Generation",C6]],
-[5,"Elective","Elective I: PHP &amp; Scripting Language","17/12/2026 Thu","FN",0,["VBScript &amp; JavaScript language structure","VBScript I/O &amp; data validation","JavaScript forms, SSI &amp; cookies","PHP server-side basics","PHP functions, classes, forms &amp; databases",C6]],
-[5,"Elective","Elective I: Python Programming","17/12/2026 Thu (or 07/12 AN)","FN",0,["Basics of Python","Control Statements, Lists, Tuples &amp; Dictionaries","Functions &amp; Modules","Error Handling &amp; Files","Object-Oriented Features &amp; Regular Expressions",C6]],
-[5,"Skill","Skill Based 3: CASE Tools Concepts &amp; Applications","18/12/2026 Fri","FN",0,["Software Engineering &amp; Data Modeling","Software Design","Software Testing &amp; Ubridge","Configuration Management &amp; OO Methodologies","Estimation &amp; UML",C6]]
+[1,"Language","Tamil I","24/11/2026 Tue","FN",0],
+[1,"English","English I","26/11/2026 Thu","FN",0],
+[1,"Core","Core 1: Computing Fundamentals &amp; C Programming","02/12/2026 Wed","FN",["Fundamentals of Computers &amp; Problem Solving in C","Overview of C","Decision Making, Looping &amp; Arrays","User-Defined Functions, Structures &amp; Unions","Pointers &amp; File Management",C6]],
+[1,"Core","Core 2: Digital Fundamentals &amp; Computer Architecture","05/12/2026 Sat","FN",["Number System &amp; Arithmetic Circuits","Combinational Logic &amp; Sequential Circuits","Input–Output Organization &amp; Data Transfer","Memory Organization","Case Studies (80286–80486, microcontrollers)",C6]],
+[1,"Allied","Allied 1: Mathematical Structures for Computer Science","09/12/2026 Wed","FN",0],
+[2,"Language","Tamil II","24/11/2026 Tue","AN",0],
+[2,"English","English II","26/11/2026 Thu","AN",0],
+[2,"Allied","Allied 2: Discrete Mathematics","05/12/2026 Sat","AN",0],
+[2,"Core","Core 3: C++ Programming","11/12/2026 Fri","FN",["Introduction to C++","Classes &amp; Objects","Operator Overloading &amp; Inheritance","Pointers, Binding, Polymorphism &amp; Virtual Functions","Files, Templates, Exception Handling &amp; Strings",C6]],
+[3,"Language","Tamil III","23/11/2026 Mon","FN",0],
+[3,"English","English III","25/11/2026 Wed","FN",0],
+[3,"Allied","Allied 3: Computer Based Optimization Techniques","01/12/2026 Tue","FN",0],
+[3,"Core","Core 4: Data Structures","04/12/2026 Fri","FN",["Introduction (algorithms, arrays, stacks &amp; queues)","Linked Lists","Trees &amp; Graphs","External Sorting, Symbol Tables &amp; Hashing","Internal Sorting &amp; Files",C6]],
+[3,"Core","Core 5: Java Programming","08/12/2026 Tue","FN",["Fundamentals of OOP &amp; Java Evolution","Branching &amp; Looping","Arrays, Interfaces, Packages &amp; Multithreading","Error Handling, Applets &amp; Graphics","Managing Input/Output Files in Java",C6]],
+[3,"Skill","Skill Based 1: Web Programming","10/12/2026 Thu","AN",["Introduction to Internet","HTML","HTML &amp; DHTML","XML Basics &amp; DTD","XML Schema &amp; XSL",C6]],
+[4,"Language","Tamil IV","23/11/2026 Mon","AN",0],
+[4,"English","English IV","25/11/2026 Wed","AN",0],
+[4,"Core","Core 6: System Software &amp; Operating Systems","01/12/2026 Tue","AN",["Introduction to System Software, Loaders &amp; Linkers","Machine &amp; Compiler","Operating System (processes, storage management)","Virtual Storage &amp; Processor Scheduling","Device &amp; Information Management",C6]],
+[4,"Core","Core 7: Linux &amp; Shell Programming","04/12/2026 Fri","AN",["Introduction to Linux","Managing Files &amp; Directories","vi Editor, Filters &amp; Pipes","Securing Files &amp; Shell Scripts","Conditional Execution &amp; Iteration in Shell Scripts",C6]],
+[4,"Allied","Allied 4: Business Accounting","08/12/2026 Tue","AN",0],
+[5,"Core","Core 8: RDBMS &amp; Oracle","30/11/2026 Mon","FN",["Database Concepts","Oracle9i","Working with Tables","PL/SQL","PL/SQL Composite Data Types",C6]],
+[5,"Core","Core 9: Visual Basic","03/12/2026 Thu","FN",["Introduction to VB","Menus in VB","ODBC &amp; Data Access Objects","Object Linking &amp; Embedding","Controls in VB",C6]],
+[5,"Elective","Elective I: PHP &amp; Scripting Language","17/12/2026 Thu","FN",["VBScript &amp; JavaScript language structure","VBScript I/O &amp; data validation","JavaScript forms, SSI &amp; cookies","PHP server-side basics","PHP functions, classes, forms &amp; databases",C6]],
+[5,"Skill","Skill Based 3: CASE Tools Concepts &amp; Applications","18/12/2026 Fri","FN",["Software Engineering &amp; Data Modeling","Software Design","Software Testing &amp; Ubridge","Configuration Management &amp; OO Methodologies","Estimation &amp; UML",C6]]
 ];
-var F=["All","Arrears","Language","English","Core","Allied","Elective","Skill"],cur="All";
+var F=["All","Language","English","Core","Allied","Elective","Skill"],cur="All";
+function plain(s){var t=document.createElement("textarea");t.innerHTML=s;return t.value}
+function shown(){return D.filter(function(r){return cur=="All"||r[1]==cur})}
+function parts(r){
+  var p=r[3].split(" ")[0].split("/"),fn=r[4]=="FN";
+  var d=p[2]+p[1]+p[0];
+  return{s:d+"T"+(fn?"100000":"140000"),e:d+"T"+(fn?"130000":"170000")};
+}
+function vevent(r,i){
+  var t=parts(r),n=plain(r[2]);
+  return["BEGIN:VEVENT","UID:bca-2026-"+i+"-"+t.s+"@exam-schedule","DTSTAMP:20261119T000000Z",
+  "DTSTART:"+t.s,"DTEND:"+t.e,"SUMMARY:Exam: "+n,
+  "DESCRIPTION:Bharathiar University BCA Nov/Dec 2026 - Semester "+r[0]+" ("+r[4]+" session)",
+  "BEGIN:VALARM","TRIGGER:-P1D","ACTION:DISPLAY","DESCRIPTION:Exam tomorrow: "+n,"END:VALARM",
+  "BEGIN:VALARM","TRIGGER:-PT1H","ACTION:DISPLAY","DESCRIPTION:Exam in 1 hour: "+n,"END:VALARM",
+  "END:VEVENT"].join("\r\n");
+}
+function save(list,name){
+  var body="BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//BCA Exam Schedule//EN\r\nCALSCALE:GREGORIAN\r\n"+list.map(function(x){return vevent(x,D.indexOf(x))}).join("\r\n")+"\r\nEND:VCALENDAR";
+  var a=document.createElement("a");
+  a.href=URL.createObjectURL(new Blob([body],{type:"text/calendar"}));
+  a.download=name+".ics";document.body.appendChild(a);a.click();a.remove();
+}
+function addOne(i){save([D[i]],"exam-"+(i+1))}
+function addAll(){save(shown(),"bca-exams-"+cur.toLowerCase())}
+function gcal(r){
+  var t=parts(r);
+  return"https://calendar.google.com/calendar/render?action=TEMPLATE&text="+encodeURIComponent("Exam: "+plain(r[2]))+"&dates="+t.s+"/"+t.e+"&ctz=Asia/Kolkata&details="+encodeURIComponent("Bharathiar University BCA Nov/Dec 2026 - Semester "+r[0]);
+}
 function render(){
   var h="";
   for(var s=1;s<=5;s++){
-    var rows=D.filter(function(r){return r[0]==s&&(cur=="All"||(cur=="Arrears"?r[5]:r[1]==cur))});
+    var rows=shown().filter(function(r){return r[0]==s});
     if(!rows.length)continue;
     h+="<h2>Semester "+s+"</h2>";
     rows.forEach(function(r){
-      var dt=r[3].split(" ");
-      h+='<div class="card'+(r[5]?" arr":"")+'"><div class="row"><div><div class="name">'+r[2]+'</div><div class="meta"><span class="tag">'+r[1]+'</span>'+(r[5]?'<span class="tag a">Arrear</span>':"")+'</div></div><div class="date">'+dt[0]+"<small>"+dt.slice(1).join(" ")+" · "+r[4]+"</small></div></div>";
-      if(r[6]){h+="<details><summary>Syllabus units</summary><ol>"+r[6].map(function(u){return"<li>"+u+"</li>"}).join("")+"</ol></details>"}
+      var i=D.indexOf(r),dt=r[3].split(" ");
+      h+='<div class="card"><div class="row"><div><div class="name">'+r[2]+'</div><div class="meta"><span class="tag">'+r[1]+'</span></div></div><div class="date">'+dt[0]+"<small>"+dt[1]+" · "+r[4]+"</small></div></div>";
+      h+='<div class="act"><button onclick="addOne('+i+')">Add to calendar</button><a href="'+gcal(r)+'" target="_blank" rel="noopener">Google Calendar</a></div>';
+      if(r[5]){h+="<details><summary>Syllabus units</summary><ol>"+r[5].map(function(u){return"<li>"+u+"</li>"}).join("")+"</ol></details>"}
       else if(r[1]=="Allied"||r[1]=="Language"||r[1]=="English"){h+='<p class="note">Unit-wise syllabus not included.</p>'}
       h+="</div>";
     });
   }
-  document.getElementById("out").innerHTML=h||"<p>No papers.</p>";
+  document.getElementById("out").innerHTML=h;
   document.getElementById("chips").innerHTML=F.map(function(f){return'<button class="'+(f==cur?"on":"")+'" onclick="cur=\''+f+'\';render()">'+f+"</button>"}).join("");
 }
 render();
